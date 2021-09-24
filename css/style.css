@@ -5,9 +5,14 @@
     font-family: 'Noto Serif', serif;
 }
 
-.content-img {
-    width: 100%;
+.body-index{
+    width: 210vh;
+    min-width:80vh;
     height: auto;
+}
+
+.content-img {
+
     padding: 380px 0;
     background-image: url('../img/cohete-img-1.jpg');
     background-repeat: no-repeat;
@@ -28,7 +33,7 @@ li {
     list-style: none;
     color: white;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1em;
     cursor: pointer;
 }
 
@@ -137,8 +142,6 @@ a:hover:after {
 .content-img-shop {
     width: 210vh;
     min-width:200vh;
-
-
     height: auto;
     padding: 380px 0;
     background-image: url('../img/img-2.jpg');
@@ -236,6 +239,19 @@ a:hover:after {
 .contador{
     font-size:30px;
 }
+
+
+
+/*MAIN*/
+.contain-main{
+    width: 210vh;
+    min-width:200vh;
+
+
+    height: auto;   
+}
+
+
 
 
 

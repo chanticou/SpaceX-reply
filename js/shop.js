@@ -185,3 +185,8 @@ btnsBuy.forEach(btn => {
         console.log(e.target)
     })
 })*/
+
+
+
+
+
