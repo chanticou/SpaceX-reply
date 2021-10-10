@@ -5,30 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <title>Shop</title>
 
 </head>
 
 <body>
-    <div class="content-img-shop">
+    <div class="content-img-shop batata">
         <header>
             <nav>
                 <ul>
                     <li>
-                        <img class='logo' src="../img/logo.png" alt="Logo SpaceX">
+                        <img class='logo' src="../img/logo.png" alt="Logo SpaceX"><a href="../index.html"></a>
                     </li>
                     <li>
                         <a href="../index.html">HOME</a>
                     </li>
                     <li>
-                        <a class='login' href="./pages/login.html">LOGIN</a>
+                        <a class='login' href="../pages/login.html">LOGIN</a>
                     </li>
-                    <li>
-                        <a href="http://">SIGIN</a>
-                    </li>
-
                 </ul>
             </nav>
         </header>
@@ -42,36 +39,112 @@
         <!--title-->
         <!--HACER CARRITO-->
         <div class="contain-main">
-            <h2 class='feature-prducts'> FEATURED PRODUCTS</h2>
-            <div class="container-cart">
-                <i class="fas carrito fa-cart-plus"></i> <span class='contador'></span>
-            </div>
-
             <!--POPUP TOTAL PRODUCTOS AÑADIDOS AL CARRITO-->
-            <div class="container-popup">
+            <!-- <div class="container-container-popup"> -->
 
-            </div>
-            <!--FORMULARIO-->
-            <form class='form'>
-                <div class="mb-3">
-                    <label for="search" class="form-label"></label>
-                    <input type="text" class="form-control" placeholder="SEARCH PRODUCTS..." id="search">
-                    <button type="submit" class="btn btn-Search btn-primary"><i class="fas  fa-search"></i></button>
-                </div>
-            </form>
+            <table class="container-popup">
+                <thead class='thead'>
+                    <tr>
+                        <th scope="col">PRODUCT</th>
+                        <th scope="col">DESCRIPTION</th>
+                        <th scope="col">QUANTITY</th>
+                        <th scope="col">PRICE</th>
+                        <th scope="col">SUBTOTAL</th>
+                        <th scope="col">TOTAL</th>
+                    </tr>
+                </thead>
+              <tbody class='tbody'>
 
-            <!--CARDS-->
-            <div class="content-cards">
+              </tbody>
 
 
+            </table>
 
-
-            </div>
+            <!-- </div> -->
         </div>
+        <h2 class='feature-prducts'> FEATURED PRODUCTS</h2>
+
+        <h2 class='scroll-1'>ABOUT US</h2>
+
+        <div class="container-cart">
+            <i class="fas carrito fa-cart-plus">0</i>
+        </div>
+        <!--FORMULARIO-->
+        <form class='form'>
+            <div class="mb-3">
+                <label for="search" class="form-label"></label>
+                <input type="text" class="form-control" placeholder="SEARCH PRODUCTS..." id="search">
+                <button type="submit" class="btn btn-Search btn-primary"><i class="fas  fa-search"></i></button>
+            </div>
+        </form>
+
+        <!--CARDS-->
+
+        <div class="content-cards">
+
+
+        </div>
+
+        <h2 class="fin-scroll__footer">arriba</h2>
     </main>
 
+    <footer class='footer'>
+        <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>Services</h3>
+                            <ul>
+                                <li><a href="#">Web design</a></li>
+                                <li><a href="#">Development</a></li>
+                                <li><a href="#">Hosting</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>About</h3>
+                            <ul>
+                                <li><a href="#">Company</a></li>
+                                <li><a href="#">Team</a></li>
+                                <li><a href="#">Careers</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 item text">
+                            <h3>Company Name</h3>
+                            <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut
+                                vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit
+                                pulvinar dictum vel in justo.</p>
+                        </div>
+                        <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a
+                                href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i
+                                    class="icon ion-social-snapchat"></i></a><a href="#"><i
+                                    class="icon ion-social-instagram"></i></a></div>
+                    </div>
+                    <p class="copyright">Company Name © 2018</p>
+                </div>
+            </footer>
+        </div>
+
+    </footer>
+
+    <!--LIBRERIAS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+    </script>
     <script src="https://kit.fontawesome.com/8714d57cc8.js" crossorigin="anonymous"></script>
+    <!--LLAMANDO MODULARIZACION JS-->
+    <script src="../js/shopVariables.js"></script>
+    <script src="../js/shopDatos.js"></script>
+    <script src="../js/shopRender.js"></script>
     <script src="../js/shop.js"></script>
+    <script src="../js/funciones.js"></script>
+
 </body>
 
 </html>
