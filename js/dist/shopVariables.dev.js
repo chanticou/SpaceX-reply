@@ -13,3 +13,4 @@ var contadorCarrito = document.querySelector('.carrito'); // $('.carrito')
 var botonCerrar = document.getElementById('closePopup'); // $('.closePopup')
 
 var cart = [];
+var renderPopup = document.querySelector('.tbody');

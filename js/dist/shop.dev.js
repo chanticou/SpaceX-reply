@@ -1,73 +1,5 @@
 "use strict";
 
-// const agregarAcarrito = () => {
-//     buttonBuy.forEach(button => {
-//         button.addEventListener('click', () => {
-//             //BUSCAMOS SI EL PRODUCTO YA ESTA SELECCIONADO EN EL CARRITO
-//             const existe = cart.find(producto => producto.id == button.id)
-//             console.log(existe)
-//             // if (existe == undefined) {
-//             //     const metodoFind = arrayProductos.find(producto => producto.id == button.id)
-//             //     cart.push(metodoFind)
-//             //     console.log(cart)
-//             // } else {
-//             //     console.log(existe.agregarCantidad(1))
-//             // }
-//             // //Buscando con el emtodo find el producto que coincida con el button
-//             // // const metodoFind = arrayProductos.find(producto => producto.id == button.id)
-//             // //Pusheamos al carrito el metodo find al array carrito
-//             // // cart.push(metodoFind)
-//             // /*LOCAL STORAGE=> lo guardamos en el lcoal Storage*/
-//             // localStorage.clear()
-//             // let cartJson = JSON.stringify(cart)
-//             // let local = localStorage.setItem('Pedidos', cartJson)
-//             // //$('.contadorCarrito')
-//             // mostrarPopup(cart)
-//         })
-//     })
-// };
-// const mostrarPopup = (productos) => {
-//     // containerPopup.empty()
-//     productos.forEach(product => {
-//         let totalPrice = cart.length * product.price
-//         contadorCarrito.addEventListener('click', () => {
-//             containerPopup.innerHTML += `
-//                 <button  type="button" id='closePopup' class="btn  btn-dark">X</button>   
-//                 <table class="table">
-//                 <tbody>
-//                   <tr>
-//                     <th scope="row">
-//                     <td><img  class="img-popup" ${product.img} alt="Kids-jumper"></td>
-//                     <td>${product.name}</td>
-//                     <td>${product.cantidad}</td>
-//                     <td>US$ ${product.price}</td>
-//                     <td>US$ ${totalPrice}</td>
-//                     <td>subtotal${product.subtotal()}</td>
-//                     </th>
-//                   </tr>
-//                 </tbody>
-//               </table>        
-//                  `
-//             document.getElementById('closePopup').addEventListener('click', () => {
-//                 console.log(botonCerrar)
-//                 containerPopup.style.transition = "all 0.2s";
-//                 containerPopup.style.opacity = '0'
-//             })
-//         })
-//     })
-// }
-// $(document).ready(function () {
-//     contadorCarrito.addEventListener('click', () => {
-//         containerPopup.style.transition = "all 1s";
-//         containerPopup.style.opacity = '.9'
-//     });
-//     agregarAcarrito()
-// })
-// $('.scroll-1').click(function () {
-//     $('html,body').animate({
-//         scrollTop: $('.fin-scroll__footer').offset().top
-//     })
-// })
 //mostrarPopup()
 
 /*busqueda
@@ -124,6 +56,7 @@ var agregarAcarrito = function agregarAcarrito() {
       var local = localStorage.setItem('Pedidos', cartJson); //FUNCION PARA AÑADIR EL CONTENIDO DEL CART AL CARRITO
 
       mostrarPopup(cart);
+      console.log(cart);
     });
   });
 };
@@ -132,14 +65,22 @@ var mostrarPopup = function mostrarPopup(productos) {
   //VARIABLE LOCAL PARA SUMAR EL TOTAL DE CARRITO (LA SUMA DE LOS SUBTOTALES DE CADA PRODUCTO)
   var totalCarrito = 0; //VACIAMOS LO QUE YA EXISTE EN EL CONTENEDOR PARA ACTUALIZAR CORRECTAMENTE EL CAMBIO EN LAS CANTIDADES
 
-  containerPopup.innerHTML = '';
-  productos.forEach(function (product) {
-    totalCarrito += product.subtotal();
-    console.log(popupRender);
-    popupRender.innerHTML += "\n                  <tr>\n                        <td><img  class=\"img-popup\" ".concat(product.img, " alt=\"Kids-jumper\"></td>\n                        <td>").concat(product.name, "</td>\n                        <td>").concat(product.cantidad, "</td>\n                        <td>US$ ").concat(product.price, "</td>\n                        <td>US$ ").concat(product.subtotal(), "</td>\n                        <td>US$ ").concat(totalCarrito, "</td>\n                  </tr>\n               ");
-  }); //AÑADIMOS EL TOTAL UNA VEZ FINALIZADO LA CARGA DE CADA tr
+  containerPopup.innerHTML = ''; //ESCRIBIMOS ESTATICA LA TABLA DESDE JS
 
-  containerPopup.innerHTML += "<h2> TOTAL ".concat(totalCarrito, " </h2> <button  type=\"button\" id='closePopup' class=\"btn  btn-dark\">X</button> "); //ASOCIAMOS EL EVENTO AL BOTON DELETE
+  containerPopup.innerHTML = "          \n     <thead class='thead'>\n    <tr class='tr'>\n    <button  type=\"button\" id='closePopup' class=\"btn  btn-dark\">X</button> \n        <th scope=\"col\">PRODUCT</th>\n        <th scope=\"col\">DESCRIPTION</th>\n        <th scope=\"col\">QUANTITY</th>\n        <th scope=\"col\">PRICE</th>\n        <th scope=\"col\">SUBTOTAL</th>\n        <th scope=\"col\">TOTAL</th>\n    </tr>\n</thead>\n<tbody id='tbody'></tbody>\n\n<tfoot>Total:US$<span id='tfoot'></span></tfoot>\n";
+  productos.forEach(function (product) {
+    var cuerpo = document.getElementById('tbody');
+    totalCarrito += product.subtotal();
+    cuerpo.innerHTML += "\n           \n                  <tr class='tr'>\n                 \n                        <td><img  class=\"img-popup\" ".concat(product.img, " alt=\"Kids-jumper\"></td>\n                        <td class='product-name-js'>").concat(product.name, "</td>\n                        <td>").concat(product.cantidad, "</td>\n                        <td>US$ ").concat(product.price, "</td>\n                        <td>US$ ").concat(product.subtotal(), "</td>\n                        <td>Total:</td>\n                        <td><button><i class=\"fas fa-trash-alt\"></i></button>\n                  </tr>\n               "); // METODO REDUCE
+
+    var totalReduce = cart.reduce(function (acc, el) {
+      return acc + el.price * el.cantidad;
+    }, 0);
+    document.getElementById('tfoot').innerText = totalReduce; // containerPopup.innerHTML=`<tfoot>${totalReduce}</tfoot>`
+  }); //after diez emiliano
+  //AÑADIMOS EL TOTAL UNA VEZ FINALIZADO LA CARGA DE CADA tr
+  //    containerPopup.innerHTML += `<h2> TOTAL ${totalCarrito} </h2> `
+  //ASOCIAMOS EL EVENTO AL BOTON DELETE
 
   document.getElementById('closePopup').addEventListener('click', function () {
     containerPopup.style.transition = "all 0.2s";
@@ -153,4 +94,9 @@ $(document).ready(function () {
     containerPopup.style.opacity = '.9';
   });
   agregarAcarrito();
+});
+$('.scroll-1').click(function () {
+  $('html,body').animate({
+    scrollTop: $('.fin-scroll__footer').offset().top
+  }, 2000);
 });

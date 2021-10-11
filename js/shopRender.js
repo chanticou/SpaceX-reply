@@ -19,40 +19,40 @@ arrayProductos.forEach(producto => {
 
 
 
-containerPopup.innerHTML=`
-<table class="table">
-<thead>
-  <tr>
-    <th scope="col">PROUCTS</th>
-    <th scope="col">DESCRIPTION</th>
-    <th scope="col">QUANTITY</th>
-    <th scope="col">PRICE</th>
-    <th scope="col">TOTAL PRICE</th>
-  </tr>
-</thead>`
+// containerPopup.innerHTML=`
+// <table class="table">
+// <thead>
+//   <tr>
+//     <th scope="col">PROUCTS</th>
+//     <th scope="col">DESCRIPTION</th>
+//     <th scope="col">QUANTITY</th>
+//     <th scope="col">PRICE</th>
+//     <th scope="col">TOTAL PRICE</th>
+//   </tr>
+// </thead>`
 
 
 
 
 
-const renderTable=()=>{
-    containerPopup.innerHTML += `
-    <button  type="button" id='closePopup' class="btn  btn-dark">X</button>   
-    <table class="table">
-    <tbody>
-      <tr>
-        <th scope="row">
+// const renderTable=()=>{
+//     containerPopup.innerHTML += `
+//     <button  type="button" id='closePopup' class="btn  btn-dark">X</button>   
+//     <table class="table">
+//     <tbody>
+//       <tr>
+//         <th scope="row">
 
-        <td><img  class="img-popup" ${product.img} alt="Kids-jumper"></td>
-        <td>${product.name}</td>
+//         <td><img  class="img-popup" ${product.img} alt="Kids-jumper"></td>
+//         <td>${product.name}</td>
         
-        <td>US$ ${product.price}</td>
-        <td>US$ ${totalPrice}</td>
-        </th>
-      </tr>
+//         <td>US$ ${product.price}</td>
+//         <td>US$ ${totalPrice}</td>
+//         </th>
+//       </tr>
      
-    </tbody>
-  </table>        
+//     </tbody>
+//   </table>        
 
-     `
-}
+//      `
+// }

@@ -18,6 +18,8 @@ let botonCerrar= document.getElementById('closePopup')
 
 const cart = []
 
+const renderPopup=document.querySelector('.tbody')
+
 
 
 
