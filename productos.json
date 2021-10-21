@@ -1,0 +1,59 @@
+[{
+        "name": "KID JUMPER",
+        "price": 45,
+        "id": 1,
+        "img": "src=../img/kids-jumper.png",
+        "quantity":1
+
+    },
+
+    {
+        "name": "KIDS STARTMAN<br> HOODIE BLACK",
+        "price": 25,
+        "id": 2,
+        "img": "src=../img/KIDS_STARMAN_HOODIE_BLACK_FRONT_400x.png",
+        "quantity":1
+    },
+    {
+        "name": "MENS STARMAN<br> BLACK",
+        "price": 40,
+        "id": 3,
+        "img": "src=../img/MENS-starman-black-FRONT_0414b62c-7de5-4a9d-916b-05a86976fa63_400x.png",
+        "quantity":1
+    },
+    {
+        "name": "UNISEX DRAGON<br> ZIPPER ",
+        "price": 27,
+        "id": 4,
+        "img": "src=../img/UNISEX_DRAGON_ZIPPER_SMARTEX_GRAY_BACK_400x.png",
+        "quantity":1
+    },
+    {
+        "name": "UNISEX SPACEX <br>PULLOVER NAVY",
+        "price": 77,
+        "id": 5,
+        "img": "src=../img/UNISEX_SPACEX_PULLOVER_NAVY_BACK_400x.png",
+        "quantity":1
+    },
+    {
+        "name": "UNISEX SPACEX<br> SWEATSHIRT",
+        "price": 92,
+        "id": 6,
+        "img": "src=../img/UNISEX_SPACEX_SWEATSHIRT_ROYAL_BLUE_FRONT-4952_400x.png",
+        "quantity":1
+    },
+    {
+        "name": "WOMENS BOMBER<br> JACKET BLACK",
+        "price": 56,
+        "id": 7,
+        "img": "src=../img/WOMENS_BOMBER_JACKET_BLACK_FRONT_400x.png",
+        "quantity":1
+    },
+    {
+        "name": "UNISEX MOTO<br> JAKET BLACK",
+        "price": 150,
+        "id": 8,
+        "img": "src=../img/UNISEX_MOTO_JACKET_BLACK_FRONT-V2_400x.png",
+        "quantity":1
+    }
+]

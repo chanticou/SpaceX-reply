@@ -9,8 +9,8 @@
 
 
 .body-index {
-    width: 210vh;
-    min-width: 80vh;
+
+
     height: auto;
 }
 
@@ -67,6 +67,7 @@ a:hover:after {
 /*logo*/
 .logo {
     margin-top: -190px;
+    width:350px;
 }
 
 .content-phrase {
@@ -88,7 +89,7 @@ a:hover:after {
 
 .content-phrase,
 .recent {
-    font-size: 20px;
+    font-size:clamp(25px, 6vw, 50px);
     text-shadow: 0.5px 0.5px 0.5px black;
 }
 
@@ -139,12 +140,20 @@ a:hover:after {
 
 
 /*+++++++++++++++++++++++++++++++++++++SHOP++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.card{
+    max-width: 400px;
+}
+
+
+    .card-img-top{
+        width: 100%;
+    }
 
 
 /*IMAGEN PRINCIPAL DE FONDO*/
 .content-img-shop {
     width: 100%;
-    min-width: 100%;
+   
     height: auto;
     padding: 380px 0;
     background-image: url('../img/img-2.jpg');
@@ -182,10 +191,6 @@ a:hover:after {
     color: blue;
 }
 
-.card-img-top {
-    width: 450px;
-    height: 450px;
-}
 
 .content-cards {
     display: flex;
@@ -262,7 +267,7 @@ a:hover:after {
 /*MAIN*/
 .contain-main {
     width: 100%;
-    min-width: 100%;
+   
 
 
     height: auto;
@@ -300,15 +305,30 @@ a:hover:after {
     padding: 20px 10px;
     flex-direction: column;
     justify-content: center;
+    border-collapse: collapse;
     align-items: center;
     transform: translate(-50%, -50%);
 }
 
-.tr{
+/* .tr{
     display: flex;
     justify-content: space-around;
     width: 600px;
+} */
+
+
+th, td{
+    padding:12px 10px;
 }
+
+tr{
+    width:100%;
+}
+
+tbody, tr{
+    width: 100%;
+}
+
 .product-name-js{
     text-align: justify;
 }
@@ -333,6 +353,12 @@ a:hover:after {
 
 
 
+@media screen and (max-width: 768px){
+    .logo{
+        display: none;
+    }
+}
+     
 
 
 
@@ -429,4 +455,14 @@ a:hover:after {
     opacity: 0.3;
     font-size: 13px;
     margin-bottom: 0;
+}
+
+
+
+.container-toggle{
+    display:none;
+}
+
+.trashButton{
+    margin-right: 0;
 }

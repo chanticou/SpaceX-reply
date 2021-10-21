@@ -1,24 +1,24 @@
 "use strict";
 
-//mostrarPopup()
+$.getJSON("../productos.json", function (datos, estado) {
+  console.log(datos);
+  console.log(estado);
+  datos.forEach(function (prod) {
+    return arrayProductos.push(prod);
+  });
+  localStorage.setItem('stock', JSON.stringify(datos));
+  mostrar(arrayProductos);
+});
+var containerPopup = document.querySelector('.container-popup');
+var containerCards = document.querySelector('.content-cards');
 
-/*busqueda
+var mostrar = function mostrar(array) {
+  console.log(array);
+  array.forEach(function (producto) {
+    containerCards.innerHTML += "\n        <div class='content-card'>\n    <div class=\"card\">\n    <img  ".concat(producto.img, " class=\"card-img-top\" alt=\"Kids-jumper\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">").concat(producto.name, "</h5>\n      <h3 class='precio'>Price:US$ ").concat(producto.price, "</h3>\n      <button id=").concat(producto.id, "  type=\"button\"  class=\"btn btnCart btn-dark\">BUY</button>\n    </div>\n  </div>\n  </div>\n        ");
+  });
+};
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    let input = document.querySelector('.form-control').value
-    choise(input)
-
-})
-
-//busqueda
-let choise = (input) => {
-    if (input == array[1].name) {
-        cart.push(array[1].name)
-
-    }
-}
-*/
 var agregarAcarrito = function agregarAcarrito() {
   //ACCESO AL DOM PARA OBTENER LOS BOTONES DE CLASE .btnCart
   var buttonBuy = document.querySelectorAll('.btnCart'); //POR CADA BOTON AÑADIMOS UN EVENTO
@@ -53,7 +53,8 @@ var agregarAcarrito = function agregarAcarrito() {
 
       localStorage.clear();
       var cartJson = JSON.stringify(cart);
-      var local = localStorage.setItem('Pedidos', cartJson); //FUNCION PARA AÑADIR EL CONTENIDO DEL CART AL CARRITO
+      var local = localStorage.setItem('Pedidos', cartJson);
+      console.log(local); //FUNCION PARA AÑADIR EL CONTENIDO DEL CART AL CARRITO
 
       mostrarPopup(cart);
       console.log(cart);
@@ -94,9 +95,21 @@ $(document).ready(function () {
     containerPopup.style.opacity = '.9';
   });
   agregarAcarrito();
-});
+}); // ANIMACIONES CON JQUERY
+
 $('.scroll-1').click(function () {
   $('html,body').animate({
     scrollTop: $('.fin-scroll__footer').offset().top
   }, 2000);
+});
+$('.shop-space').animate({
+  fontSize: '100px',
+  opacity: .8
+}, 3000); // TOGGLE
+
+$('.toggle').on('click', function () {
+  $('.cohete');
+});
+$('.toggle').on('click', function () {
+  $('.cohete').slideDown(3000).slideUp(3000);
 });

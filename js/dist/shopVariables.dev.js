@@ -1,7 +1,6 @@
 "use strict";
 
-var containerPopup = document.querySelector('.container-popup'); // $('.container-popup')
-
+// $('.container-popup')
 var contentCards = document.querySelector('.content-cards'); // $('.content-cards')
 //const form = document.querySelector('.form')
 // console.log($('.form'))
@@ -14,3 +13,4 @@ var botonCerrar = document.getElementById('closePopup'); // $('.closePopup')
 
 var cart = [];
 var renderPopup = document.querySelector('.tbody');
+var arrayProductos = [];

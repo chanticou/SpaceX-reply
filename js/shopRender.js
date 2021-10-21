@@ -1,19 +1,19 @@
 
 
 
-arrayProductos.forEach(producto => {
-    contentCards.innerHTML += `<div class='content-card'>
-    <div class="card">
-    <img  ${producto.img} class="card-img-top" alt="Kids-jumper">
-    <div class="card-body">
-      <h5 class="card-title">${producto.name}</h5>
-      <h3 class='precio'>Price:US$ ${producto.price}</h3>
-      <button id=${producto.id}  type="button"  class="btn btnCart btn-dark">BUY</button>
-    </div>
-  </div>
-  </div>`
+// arrayProductos.forEach(producto => {
+//     contentCards.innerHTML += `<div class='content-card'>
+//     <div class="card">
+//     <img  ${producto.img} class="card-img-top" alt="Kids-jumper">
+//     <div class="card-body">
+//       <h5 class="card-title">${producto.name}</h5>
+//       <h3 class='precio'>Price:US$ ${producto.price}</h3>
+//       <button id=${producto.id}  type="button"  class="btn btnCart btn-dark">BUY</button>
+//     </div>
+//   </div>
+//   </div>`
     
-})
+// })
 
 
 

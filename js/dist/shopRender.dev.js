@@ -1,8 +1,16 @@
-"use strict";
-
-arrayProductos.forEach(function (producto) {
-  contentCards.innerHTML += "<div class='content-card'>\n    <div class=\"card\">\n    <img  ".concat(producto.img, " class=\"card-img-top\" alt=\"Kids-jumper\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">").concat(producto.name, "</h5>\n      <h3 class='precio'>Price:US$ ").concat(producto.price, "</h3>\n      <button id=").concat(producto.id, "  type=\"button\"  class=\"btn btnCart btn-dark\">BUY</button>\n    </div>\n  </div>\n  </div>");
-}); // containerPopup.innerHTML=`
+// arrayProductos.forEach(producto => {
+//     contentCards.innerHTML += `<div class='content-card'>
+//     <div class="card">
+//     <img  ${producto.img} class="card-img-top" alt="Kids-jumper">
+//     <div class="card-body">
+//       <h5 class="card-title">${producto.name}</h5>
+//       <h3 class='precio'>Price:US$ ${producto.price}</h3>
+//       <button id=${producto.id}  type="button"  class="btn btnCart btn-dark">BUY</button>
+//     </div>
+//   </div>
+//   </div>`
+// })
+// containerPopup.innerHTML=`
 // <table class="table">
 // <thead>
 //   <tr>
@@ -30,3 +38,4 @@ arrayProductos.forEach(function (producto) {
 //   </table>        
 //      `
 // }
+"use strict";

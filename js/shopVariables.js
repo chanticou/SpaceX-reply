@@ -1,6 +1,5 @@
-const containerPopup = document.querySelector('.container-popup')
-// $('.container-popup')
 
+// $('.container-popup')
 let contentCards = document.querySelector('.content-cards')
 // $('.content-cards')
 
@@ -24,3 +23,7 @@ const renderPopup=document.querySelector('.tbody')
 
 
 
+
+
+const containerPopup = document.querySelector('.container-popup')
+const containerCards = document.querySelector('.content-cards')

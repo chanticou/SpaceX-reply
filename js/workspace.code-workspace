@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\Users\\GIUSEPPA\\Desktop\\Santé\\css"
+		},
+		{
+			"path": "..\\..\\..\\..\\Users\\GIUSEPPA\\Desktop\\Santé\\img"
+		},
+		{
+			"path": "..\\..\\..\\..\\Users\\GIUSEPPA\\Desktop\\Santé\\JS"
+		}
+	],
+	"settings": {
+		"compile-hero.disable-compile-files-on-did-save-code": false,
+		"liveServer.settings.multiRootWorkspaceName": "css"
+	}
+}
