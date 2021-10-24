@@ -23,9 +23,9 @@
                     <li>
                         <a href="../index.html">HOME</a>
                     </li>
-                 <li>
-                    <a href="../pages/shop.html">SHOP</a>
-                 </li>
+                    <li>
+                        <a href="../pages/shop.html">SHOP</a>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -45,14 +45,29 @@
         </div> -->
         <!--POPUP TOTAL PRODUCTOS AÑADIDOS AL CARRITO-->
         <!-- <div class="container-container-popup"> -->
-
-        <table class="container-popup">
-
-
-
-
-
-        </table>
+        <div class="popup" id='popup'>
+            <div class="overlay"></div>
+            
+            <div class="container-popup">
+                <table class="table">
+                    <thead class='thead'>
+                        <button type="button" id='closePopup' class="btn closePopup btn-dark">X</button>
+                        <tr class='tr'>
+                            <th>PRODUCT</th>
+                            <th>DESCRIPTION</th>
+                            <th>QUANTITY</th>
+                            <th>PRICE</th>
+                            <th>SUBTOTAL</th>
+                            <th>DELETE ITEM</th>
+                        </tr>
+                    </thead>
+                    <tbody id='tbody'>
+                       
+                    </tbody>
+                </table>
+                <p>Total:<span id='tfoot'></span></p>
+            </div>
+        </div>
 
         <!-- </div> -->
         </div>
@@ -150,7 +165,7 @@
     <script src="../js/shop.js"></script>
     <script src="../js/shopFunctions.js"></script>
     <script src="../js/animationsJQ.js"></script>
-    
+
 
 
 </body>
