@@ -82,10 +82,24 @@ const agregarAcarrito = (button) => {
 const precioTotal=()=>{
     let totalReduce = cart.reduce((acc, el) => acc + (el.price * el.quantity), 0)
     document.getElementById('tfoot').innerText = totalReduce
+
 }
 
+let buttonFinalizar = document.querySelector('.finalizarCompra')
+buttonFinalizar.addEventListener('click',()=>{
+    Toastify({
 
+        text: "COMPRA FINALIZADA",
+        
+        duration: 2000,
+        style:{
+            color:'red;'
+        }
+        
+    }).showToast();
+    window.location.href = 'https://www.google.com/';
 
+})
 
 
 
@@ -138,14 +152,13 @@ const mostrarPopup = (productos) => {
                         <td>US$ ${product.price}</td>
                         <td>US$ ${subtotal(product.quantity , product.price)}</td>
                         <td><button id=eliminar${product.id}><i class="fas trashButton fa-trash-alt"></i></button></td>
-                 
+                        
                `
             cuerpo.appendChild(tr)
 
         // METODO REDUCE PARA DARME EL TOTAL
         precioTotal()
 
-        // containerPopup.innerHTML=`<tfoot>${totalReduce}</tfoot>`
 
 
 
@@ -158,25 +171,11 @@ const mostrarPopup = (productos) => {
             
         })
 
-        // botonBorrar.addEventListener('click', () => {
-        //     console.log(botonBorrar)
-        // })
+    
     })
 
 
 
-
-
-
-
-    //after diez emiliano
-
-    //    containerPopup.innerHTML += `<h2> TOTAL ${totalCarrito} </h2> `
-    //ASOCIAMOS EL EVENTO AL BOTON DELETE
-    // document.getElementById('closePopup').addEventListener('click', () => {
-    //     containerPopup.style.transition = "all 0.2s";
-    //     containerPopup.style.opacity = '0'
-    // })
 
 
 

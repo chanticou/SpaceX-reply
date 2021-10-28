@@ -504,6 +504,29 @@ tr {
     display: none;
 }
 
+/* finaliza container */
+.container-finalizar{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.finalizarCompra{
+
+    font-size: 18px;
+    padding:0.3rem;
+    border: 1px solid #fff;
+    background-color: #000;
+    border-radius: 5px;
+    color:#fff;
+    transition: all 175ms ease-out; 
+}
+
+.finalizarCompra:hover{
+    background-color: #fff;
+    color:#000;
+}
+
 
 
 

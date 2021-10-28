@@ -1,31 +1,27 @@
-//Llamo a las cards guardadas en un Json
+//clase
+class Productos {
+    constructor(name, price, id, img) {
+        this.name = name,
+            this.price = price,
+            this.id = id,
+            this.img = img,
+            this.quantity=1
+    }
+
+}
+
 const arrayProductos = []
 
+//Llamo a las cards guardadas en un Json
 $.getJSON("../productos.json", function (datos, estado) {
     console.log(datos)
     console.log(estado)
-    datos.forEach(prod => arrayProductos.push(prod))
-    localStorage.setItem('stock', JSON.stringify(datos))
 
 
+    datos.forEach(prod => arrayProductos.push(new Productos(prod.name, prod.price, prod.id, prod.img, prod.quantity)))
 
     renderCards(arrayProductos)
 
-
-
-
-    // agregarAcarrito();
-
-
-    // contadorCarrito.addEventListener('click', () => {
-
-    //     // containerPopup.style.transition = "all 1s";
-    //     // containerPopup.style.opacity = '.9';
-    //     // containerPopup.classList.add('active')
-    //     document.getElementById('popup').classList.toggle('active');
-    //     // containerPopup.style.display = "block";
-
-    // });
 
 
 
