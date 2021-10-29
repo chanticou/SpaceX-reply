@@ -24,16 +24,33 @@ $.getJSON("../productos.json", function (datos, estado) {
 
 
 
-        // ABRIR POPUP
-        document.querySelector('.container-cart').addEventListener('click', () => {
+    // ABRIR POPUP
+    document.querySelector('.container-cart').addEventListener('click', () => {
+        if (cart.length === 0) {
+            Toastify({
+
+                text: 'CARRITO VACIO',
+
+                duration: 2000,
+                style: {
+                    color: 'white',
+                    background: 'red',
+                    opacity: .87
+                }
+
+
+            }).showToast();
+        } else {
             document.getElementById('popup').classList.add('active')
-        })
+        }
+
+    })
 
 
-        // CERRAR POPUP
-        document.querySelector('#closePopup').addEventListener('click', () => {
-            document.getElementById('popup').classList.remove('active')
-        })
-    
+    // CERRAR POPUP
+    document.querySelector('#closePopup').addEventListener('click', () => {
+        document.getElementById('popup').classList.remove('active')
+    })
+
 
 })

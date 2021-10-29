@@ -27,6 +27,7 @@ const renderCards = (array) => {
         //POR CADA BOTON AÑADIMOS UN EVENTO
         buttonBuy.forEach(button => {
             button.addEventListener('click', () => {
+      
                 agregarAcarrito(button)
       
             })
@@ -37,14 +38,7 @@ const renderCards = (array) => {
 }
 
 
-//LOCAL STORAGE FUNCTION
-const localStorageFunction = () => {
 
-    /*LOCAL STORAGE=> lo guardamos en el lcoal Storage*/
-    localStorage.clear()
-    let cartJson = JSON.stringify(cart)
-    localStorage.setItem('Pedidos', cartJson)
-}
 
 
 //function AGREGAR AL CARRITO
@@ -52,6 +46,7 @@ const agregarAcarrito = (button) => {
 
     //BUSCAMOS SI EL PRODUCTO YA ESTA SELECCIONADO EN EL CARRITO
     const existe = cart.find(producto => producto.id == button.id)
+    
 
 
     // SI EL PRODUCTO NO FUE SELECCIONADO PREVIAMENTE LA BUSQUEDA DA UNDEFINED
@@ -71,25 +66,45 @@ const agregarAcarrito = (button) => {
     }
 
     //FUNCIONALIDAD PARA SUMAR CANTIDAD TOTAL DE LOS PRODUCTOS EN BASE A LA CANTIDAD
-    let cantidadEnCarrito = 0;
-
-    cart.forEach(p => cantidadEnCarrito += p.quantity);
-
-    contadorCarrito.innerHTML = cantidadEnCarrito;
+    funcionalidadCarrito(cart)
 
     localStorageFunction()
-
     //FUNCION PARA MOSTRAR EL POPUP, LE PASAMOS COMO PARAMETRO EL ARRAY DEL CARRITO
     mostrarPopup(cart)
 
 
 };
 
+
+//LOCAL STORAGE FUNCTION
+const localStorageFunction = () => {
+
+    /*LOCAL STORAGE=> lo guardamos en el lcoal Storage*/
+    localStorage.clear()
+    let cartJson = JSON.stringify(cart)
+    localStorage.setItem('Pedidos', cartJson)
+}
+
+
+//ACTUALIZACION CARRITO/FUNCIONALIDAD
+let funcionalidadCarrito=()=>{
+    let cantidadEnCarrito = 0;
+
+    cart.forEach(p => cantidadEnCarrito += p.quantity);
+
+    contadorCarrito.innerHTML = cantidadEnCarrito;
+
+}
+
+
+
+
+
+
+// FUNCION QUE TE DEVUELVE EL PRECIO TOTAL
 const precioTotal = () => {
     let totalReduce = cart.reduce((acc, el) => acc + (el.price * el.quantity), 0)
     document.getElementById('tfoot').innerText = totalReduce
- 
-   
 
 }
 
@@ -129,6 +144,9 @@ buttonFinalizar.addEventListener('click', () => {
 
 
         }).showToast();
+      
+        cart=''
+     
 
         // CIERRO POPUP
         document.getElementById('popup').classList.remove('active')
@@ -183,7 +201,9 @@ const mostrarPopup = (productos) => {
             cart = cart.filter(el => el.id != product.id) 
        
             precioTotal()
+            funcionalidadCarrito(cart)
 
+            localStorageFunction()
         })
 
 
