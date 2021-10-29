@@ -1,4 +1,4 @@
-//clase
+//Clase constructora
 class Productos {
     constructor(name, price, id, img) {
         this.name = name,
@@ -12,45 +12,25 @@ class Productos {
 
 const arrayProductos = []
 
-//Llamo a las cards guardadas en un Json
+//Llamo a las cards guardadas en mi Json
 $.getJSON("../productos.json", function (datos, estado) {
+    //Succes
     console.log(datos)
     console.log(estado)
 
-
     datos.forEach(prod => arrayProductos.push(new Productos(prod.name, prod.price, prod.id, prod.img, prod.quantity)))
 
+    //Lamo a la funcion renderCards y le paso como parametro mi arrayProductos
     renderCards(arrayProductos)
 
-
-
-    // ABRIR POPUP
-    document.querySelector('.container-cart').addEventListener('click', () => {
-        if (cart.length === 0) {
-            Toastify({
-
-                text: 'CARRITO VACIO',
-
-                duration: 2000,
-                style: {
-                    color: 'white',
-                    background: 'red',
-                    opacity: .87
-                }
-
-
-            }).showToast();
-        } else {
-            document.getElementById('popup').classList.add('active')
-        }
-
-    })
+    // BOTON CARRITO QUE ABRE EL POPUP, FUNCION EN shopFunction=>abrirPopUp
+    cartButton.addEventListener('click', abrirPopUp)
 
 
     // CERRAR POPUP
-    document.querySelector('#closePopup').addEventListener('click', () => {
-        document.getElementById('popup').classList.remove('active')
-    })
+    cerrarPopUp.addEventListener('click', closepopup)
+       
+   
 
 
 })

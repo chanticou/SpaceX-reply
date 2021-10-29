@@ -1,3 +1,35 @@
+// ABRIR POPUP
+let abrirPopUp = () => {
+    //ME ASEGURO DE QUE EL CARRITO NO ESTE VACIO
+    if (cart.length === 0) {
+        Toastify({
+
+            text: 'CARRITO VACIO',
+
+            duration: 2000,
+            style: {
+                color: 'white',
+                background: 'red',
+                opacity: .87
+            }
+
+        }).showToast();
+
+    } else {
+        document.getElementById('popup').classList.add('active')
+    }
+}
+
+// CERRAR POUP
+let closepopup = () => {
+    document.getElementById('popup').classList.remove('active')
+}
+
+
+
+
+
+
 //Funtion quantity
 let subtotal = (quantity, price) => {
     return quantity * price
@@ -27,9 +59,9 @@ const renderCards = (array) => {
         //POR CADA BOTON AÑADIMOS UN EVENTO
         buttonBuy.forEach(button => {
             button.addEventListener('click', () => {
-      
+
                 agregarAcarrito(button)
-      
+
             })
         })
 
@@ -46,8 +78,6 @@ const agregarAcarrito = (button) => {
 
     //BUSCAMOS SI EL PRODUCTO YA ESTA SELECCIONADO EN EL CARRITO
     const existe = cart.find(producto => producto.id == button.id)
-    
-
 
     // SI EL PRODUCTO NO FUE SELECCIONADO PREVIAMENTE LA BUSQUEDA DA UNDEFINED
     //SI EL PRODUCTO NO ESTA ADENTRO DEL CARRITO, LO AGRUEGAMOS
@@ -60,9 +90,7 @@ const agregarAcarrito = (button) => {
         //SI LA BUSQUEDA RETORNA EL OBJETO EXITENTE EN EL ARRAY SUMAMOS UNA CANTIDAD
         //SI EL PRODUCTO ESTA ADENTRO DEL CARRITO LE AGRUEGAMOS UNO
 
-       existe.quantity = existe.quantity + 1;   
-    
- 
+        existe.quantity = existe.quantity + 1;
     }
 
     //FUNCIONALIDAD PARA SUMAR CANTIDAD TOTAL DE LOS PRODUCTOS EN BASE A LA CANTIDAD
@@ -71,7 +99,6 @@ const agregarAcarrito = (button) => {
     localStorageFunction()
     //FUNCION PARA MOSTRAR EL POPUP, LE PASAMOS COMO PARAMETRO EL ARRAY DEL CARRITO
     mostrarPopup(cart)
-
 
 };
 
@@ -87,7 +114,7 @@ const localStorageFunction = () => {
 
 
 //ACTUALIZACION CARRITO/FUNCIONALIDAD
-let funcionalidadCarrito=()=>{
+let funcionalidadCarrito = () => {
     let cantidadEnCarrito = 0;
 
     cart.forEach(p => cantidadEnCarrito += p.quantity);
@@ -109,51 +136,6 @@ const precioTotal = () => {
 }
 
 
-
-// BOTON FINALIZAR COMPRA
-
-let buttonFinalizar = document.querySelector('.finalizarCompra')
-buttonFinalizar.addEventListener('click', () => {
-    if (cart.length === 0) {
-        Toastify({
-
-            text: 'CARRITO VACIO',
-
-            duration: 2000,
-            style: {
-                color: 'white',
-                background: 'red',
-                opacity: .87
-            }
-
-
-        }).showToast();
-
-    } else {
-        Toastify({
-
-            text: 'SU TOTAL ES DE:' + document.getElementById('tfoot').innerText,
-
-            duration: 2000,
-            style: {
-                color: 'white',
-                background: 'black',
-                opacity: .87
-
-            }
-
-
-        }).showToast();
-      
-        cart=''
-     
-
-        // CIERRO POPUP
-        document.getElementById('popup').classList.remove('active')
-    }
-
-
-})
 
 
 
@@ -188,21 +170,19 @@ const mostrarPopup = (productos) => {
 
         // METODO REDUCE PARA DARME EL TOTAL
         precioTotal()
-    
+
 
         //BUTTON TRASH BORRAR ELEMENTOS
-
         let botonBorrar = document.getElementById(`eliminar${product.id}`)
         botonBorrar.addEventListener('click', () => {
 
             botonBorrar.parentElement.parentElement.remove()
 
             // LE PIDO A TRAVEZ DEL MEETODO FILTER, QUE ME TRAIGA LOS PRODUCTOS QUE NO SON IGUAL AL ID QUE APRETO
-            cart = cart.filter(el => el.id != product.id) 
-       
+            cart = cart.filter(el => el.id != product.id)
+
             precioTotal()
             funcionalidadCarrito(cart)
-
             localStorageFunction()
         })
 
@@ -210,3 +190,64 @@ const mostrarPopup = (productos) => {
     })
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// BOTON FINALIZAR COMPRA
+
+let buttonFinalizar = document.querySelector('.finalizarCompra')
+
+buttonFinalizar.addEventListener('click', () => {
+    if (cart.length === 0) {
+        Toastify({
+
+            text: 'CARRITO VACIO',
+
+            duration: 2000,
+            style: {
+                color: 'white',
+                background: 'red',
+                opacity: .87
+            }
+
+
+        }).showToast();
+
+    } else {
+        Toastify({
+
+            text: 'SU TOTAL ES DE:' + document.getElementById('tfoot').innerText,
+            duration: 2000,
+            style: {
+                color: 'white',
+                background: 'black',
+                opacity: .87
+
+            }
+
+
+        }).showToast();
+
+
+        // CARRITO VACIO
+        cart = ""
+        contadorCarrito.innerHTML = '0'
+
+        localStorageFunction()
+
+
+        // CIERRO POPUP
+        document.getElementById('popup').classList.remove('active')
+    }
+
+
+})
