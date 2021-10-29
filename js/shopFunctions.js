@@ -37,7 +37,7 @@ const renderCards = (array) => {
 
 
 //LOCAL STORAGE FUNCTION
-const localStorageFunction=()=>{
+const localStorageFunction = () => {
 
     /*LOCAL STORAGE=> lo guardamos en el lcoal Storage*/
     localStorage.clear()
@@ -79,32 +79,55 @@ const agregarAcarrito = (button) => {
 
 };
 
-const precioTotal=()=>{
+const precioTotal = () => {
     let totalReduce = cart.reduce((acc, el) => acc + (el.price * el.quantity), 0)
     document.getElementById('tfoot').innerText = totalReduce
 
 }
 
-let buttonFinalizar = document.querySelector('.finalizarCompra')
-buttonFinalizar.addEventListener('click',()=>{
-    Toastify({
 
-        text: "COMPRA FINALIZADA",
-        
-        duration: 2000,
-        style:{
-            color:'red;'
-        }
-        
-    }).showToast();
-    window.location.href = 'https://www.google.com/';
+
+// BOTON FINALIZAR COMPRA
+
+let buttonFinalizar = document.querySelector('.finalizarCompra')
+buttonFinalizar.addEventListener('click', () => {
+    if (cart.length === 0) {
+        Toastify({
+
+            text: 'CARRITO VACIO',
+
+            duration: 2000,
+            style: {
+                color: 'white',
+                background: 'red',
+                opacity: .87
+            }
+
+
+        }).showToast();
+
+    } else {
+        Toastify({
+
+            text: 'SU TOTAL ES DE:' + document.getElementById('tfoot').innerText,
+
+            duration: 2000,
+            style: {
+                color: 'white',
+                background: 'black',
+                opacity: .87
+
+            }
+
+
+        }).showToast();
+
+        // CIERRO POPUP
+        document.getElementById('popup').classList.remove('active')
+    }
+
 
 })
-
-
-
-
-
 
 
 
@@ -118,27 +141,7 @@ const mostrarPopup = (productos) => {
     //VACIAMOS LO QUE YA EXISTE EN EL CONTENEDOR PARA ACTUALIZAR CORRECTAMENTE EL CAMBIO EN LAS CANTIDADES
     cuerpo.innerHTML = '';
 
-    //RENDERIZAMOS ESTATICA LA TABLA DESDE JS
-    // containerPopup.innerHTML = `          
-    //     <thead class='thead'>
-    //     <tr class='tr'>
-    //     <button  type="button" id='closePopup' class="btn  btn-dark">X</button> 
-    //         <th scope="col">PRODUCT</th>
-    //         <th scope="col">DESCRIPTION</th>
-    //         <th scope="col">QUANTITY</th>
-    //         <th scope="col">PRICE</th>
-    //         <th scope="col">SUBTOTAL</th>
 
-    //         <th scope="col"></th>
-    //     </tr>
-    //     </thead>
-    //     <tbody id='tbody'></tbody>
-        
-
-    //     <tfoot>Total:<span id='tfoot'></span></tfoot>
-    //     `
-
-    
     productos.forEach(product => {
 
         let tr = document.createElement('tr')
@@ -154,7 +157,7 @@ const mostrarPopup = (productos) => {
                         <td><button id=eliminar${product.id}><i class="fas trashButton fa-trash-alt"></i></button></td>
                         
                `
-            cuerpo.appendChild(tr)
+        cuerpo.appendChild(tr)
 
         // METODO REDUCE PARA DARME EL TOTAL
         precioTotal()
@@ -163,22 +166,15 @@ const mostrarPopup = (productos) => {
 
 
         //BUTTON TRASH BORRAR ELEMENTOS
- 
+
         let botonBorrar = document.getElementById(`eliminar${product.id}`)
-        botonBorrar.addEventListener('click',()=>{
+        botonBorrar.addEventListener('click', () => {
 
             botonBorrar.parentElement.parentElement.remove()
-            
+
         })
 
-    
+
     })
-
-
-
-
-
-
-
 
 }

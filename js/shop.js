@@ -5,7 +5,7 @@ class Productos {
             this.price = price,
             this.id = id,
             this.img = img,
-            this.quantity=1
+            this.quantity = 1
     }
 
 }
@@ -24,13 +24,16 @@ $.getJSON("../productos.json", function (datos, estado) {
 
 
 
+        // ABRIR POPUP
+        document.querySelector('.container-cart').addEventListener('click', () => {
+            document.getElementById('popup').classList.add('active')
+        })
 
-    document.querySelector('.container-cart').addEventListener('click',()=>{
-        document.getElementById('popup').classList.add('active')
-    })
-    document.querySelector('#closePopup').addEventListener('click',()=>{
-        document.getElementById('popup').classList.remove('active')
-    })
 
+        // CERRAR POPUP
+        document.querySelector('#closePopup').addEventListener('click', () => {
+            document.getElementById('popup').classList.remove('active')
+        })
+    
 
 })
