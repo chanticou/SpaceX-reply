@@ -28,6 +28,7 @@ const renderCards = (array) => {
         buttonBuy.forEach(button => {
             button.addEventListener('click', () => {
                 agregarAcarrito(button)
+      
             })
         })
 
@@ -52,6 +53,7 @@ const agregarAcarrito = (button) => {
     //BUSCAMOS SI EL PRODUCTO YA ESTA SELECCIONADO EN EL CARRITO
     const existe = cart.find(producto => producto.id == button.id)
 
+
     // SI EL PRODUCTO NO FUE SELECCIONADO PREVIAMENTE LA BUSQUEDA DA UNDEFINED
     //SI EL PRODUCTO NO ESTA ADENTRO DEL CARRITO, LO AGRUEGAMOS
     if (existe == undefined) {
@@ -62,7 +64,10 @@ const agregarAcarrito = (button) => {
     } else {
         //SI LA BUSQUEDA RETORNA EL OBJETO EXITENTE EN EL ARRAY SUMAMOS UNA CANTIDAD
         //SI EL PRODUCTO ESTA ADENTRO DEL CARRITO LE AGRUEGAMOS UNO
-        existe.quantity = existe.quantity + 1;
+
+       existe.quantity = existe.quantity + 1;   
+    
+ 
     }
 
     //FUNCIONALIDAD PARA SUMAR CANTIDAD TOTAL DE LOS PRODUCTOS EN BASE A LA CANTIDAD
@@ -77,11 +82,14 @@ const agregarAcarrito = (button) => {
     //FUNCION PARA MOSTRAR EL POPUP, LE PASAMOS COMO PARAMETRO EL ARRAY DEL CARRITO
     mostrarPopup(cart)
 
+
 };
 
 const precioTotal = () => {
     let totalReduce = cart.reduce((acc, el) => acc + (el.price * el.quantity), 0)
     document.getElementById('tfoot').innerText = totalReduce
+ 
+   
 
 }
 
@@ -137,7 +145,7 @@ buttonFinalizar.addEventListener('click', () => {
 const mostrarPopup = (productos) => {
 
     let cuerpo = document.getElementById('tbody')
-    console.log(cuerpo)
+
     //VACIAMOS LO QUE YA EXISTE EN EL CONTENEDOR PARA ACTUALIZAR CORRECTAMENTE EL CAMBIO EN LAS CANTIDADES
     cuerpo.innerHTML = '';
 
@@ -155,15 +163,14 @@ const mostrarPopup = (productos) => {
                         <td>US$ ${product.price}</td>
                         <td>US$ ${subtotal(product.quantity , product.price)}</td>
                         <td><button id=eliminar${product.id}><i class="fas trashButton fa-trash-alt"></i></button></td>
+                       
                         
                `
         cuerpo.appendChild(tr)
 
         // METODO REDUCE PARA DARME EL TOTAL
         precioTotal()
-
-
-
+    
 
         //BUTTON TRASH BORRAR ELEMENTOS
 
@@ -171,6 +178,11 @@ const mostrarPopup = (productos) => {
         botonBorrar.addEventListener('click', () => {
 
             botonBorrar.parentElement.parentElement.remove()
+
+            // LE PIDO A TRAVEZ DEL MEETODO FILTER, QUE ME TRAIGA LOS PRODUCTOS QUE NO SON IGUAL AL ID QUE APRETO
+            cart = cart.filter(el => el.id != product.id) 
+       
+            precioTotal()
 
         })
 

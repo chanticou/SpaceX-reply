@@ -15,10 +15,9 @@ let contadorCarrito = document.querySelector('.carrito')
 let botonCerrar= document.getElementById('closePopup')
 // $('.closePopup')
 
-const cart = []
+let cart = []
 
 const renderPopup=document.querySelector('.tbody')
-
 
 
 
