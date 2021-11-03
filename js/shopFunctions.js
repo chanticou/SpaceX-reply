@@ -75,7 +75,7 @@ const renderCards = (array) => {
 
 //function AGREGAR AL CARRITO
 const agregarAcarrito = (button) => {
-
+    
     //BUSCAMOS SI EL PRODUCTO YA ESTA SELECCIONADO EN EL CARRITO
     const existe = cart.find(producto => producto.id == button.id)
 
@@ -89,8 +89,10 @@ const agregarAcarrito = (button) => {
     } else {
         //SI LA BUSQUEDA RETORNA EL OBJETO EXITENTE EN EL ARRAY SUMAMOS UNA CANTIDAD
         //SI EL PRODUCTO ESTA ADENTRO DEL CARRITO LE AGRUEGAMOS UNO
-
+        
+        
         existe.quantity = existe.quantity + 1;
+    
     }
 
     //FUNCIONALIDAD PARA SUMAR CANTIDAD TOTAL DE LOS PRODUCTOS EN BASE A LA CANTIDAD
@@ -103,13 +105,17 @@ const agregarAcarrito = (button) => {
 };
 
 
+
+
+
 //LOCAL STORAGE FUNCTION
 const localStorageFunction = () => {
-
     /*LOCAL STORAGE=> lo guardamos en el lcoal Storage*/
     localStorage.clear()
     let cartJson = JSON.stringify(cart)
     localStorage.setItem('Pedidos', cartJson)
+  
+
 }
 
 
@@ -132,6 +138,7 @@ let funcionalidadCarrito = () => {
 const precioTotal = () => {
     let totalReduce = cart.reduce((acc, el) => acc + (el.price * el.quantity), 0)
     document.getElementById('tfoot').innerText = totalReduce
+    console.log(totalReduce)
 
 }
 
@@ -193,15 +200,6 @@ const mostrarPopup = (productos) => {
 
 
 
-
-
-
-
-
-
-
-
-
 // BOTON FINALIZAR COMPRA
 
 let buttonFinalizar = document.querySelector('.finalizarCompra')
@@ -216,7 +214,7 @@ buttonFinalizar.addEventListener('click', () => {
             style: {
                 color: 'white',
                 background: 'red',
-                opacity: .87
+                opacity: .85
             }
 
 
@@ -225,7 +223,7 @@ buttonFinalizar.addEventListener('click', () => {
     } else {
         Toastify({
 
-            text: 'SU TOTAL ES DE:' + document.getElementById('tfoot').innerText,
+            text: 'GRACIAS POR SU COMPRA!',
             duration: 2000,
             style: {
                 color: 'white',
@@ -240,11 +238,10 @@ buttonFinalizar.addEventListener('click', () => {
 
         // CARRITO VACIO
         cart = ""
+        //contador vacio
         contadorCarrito.innerHTML = '0'
-
+        //Actualizaion localStorage
         localStorageFunction()
-
-
         // CIERRO POPUP
         document.getElementById('popup').classList.remove('active')
     }
